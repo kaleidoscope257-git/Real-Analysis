@@ -1,0 +1,807 @@
+% !Mode:: "TeX:UTF-8"
+\chapter{可测函数}
+
+\begin{introduction}
+	\item 可测函数的定义及其性质
+	\item Riesz表示定理
+	\item 不同意义下的函数列收敛及其关系
+	\item 可测函数与连续函数的关系
+\end{introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%										下一节
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{可测函数的定义及其性质}
+
+
+一个定义在$E \subset \R^n$上的实函数$f(x)$确定了$E$的一组子集
+\begin{equation}
+	E[f > a] := \{x:  x \in E , f(x) > a \},
+\end{equation}
+这里$a$取遍一切有限实数, 反之, $f(x)$本身也由$E$的这组子集完全确定. 
+因此, 从这组子集的性质, 可以反映出$f(x)$的性质. 
+
+\begin{definition}[可测函数]
+	设$f(x)$是定义在可测集$E \subset \R^n$上的实值函数. 若对于\textbf{任意}有限实数$a$, $E[f>a]$都是可测集, 则称$f(x)$为$E$的\textbf{可测函数}.  
+\end{definition}
+
+可以证明, 对于任意有限实数$a$, 下述任一一组集合可测都是$f(x)$在$E$上可测的充要条件:
+\begin{enumerate}
+	\item $E[f \leq a] = E \backslash E[f>a]$; 
+	\item $E[f \geq a] = \bigcap_{n=1}^{\infty} E \left[f > t-\frac 1n \right]$; 
+	\item $E[f < a] = E \backslash E[f \geq a]$. 
+\end{enumerate}
+
+特别的, $f(x)$为有限函数时, $f$在$E$上可测的充要条件可以写作: 对于任意有限实数$a,b \; (a<b)$, $E[a \leq f < b]$均可测. 
+\begin{proof}
+	必要性显然. 
+	由$b$的任意性, 任取$n \in \N^*$, 令$b = a+n$, 
+	故$E[a \leq f < a+n]$可测. 
+	当$f(x)$为有限函数时, 有
+	$$
+		E[f \geq a] = \bigcup\limits_{n = 1}^{\infty} E[a \leq f < a+n]
+	$$
+	可测, 因此$f$在$E$上可测. 
+\end{proof}
+
+\begin{corollary}
+	设$f(x)$在$E$上可测, 则$E[f = a]$总可测, 
+	任意$a \in \R \cup \{ +\infty \} \cup \{ -\infty \}$. 
+\end{corollary}
+\begin{proof}
+	只需注意
+	$$
+		E[f = a] = E[f \geq a] \backslash E[f > a],
+	$$
+	和
+	$$
+		E[f = +\infty] = \bigcap\limits_{n = 1}^{\infty} E[f > n], \quad
+		E[f = -\infty] = \bigcap\limits_{n = 1}^{\infty} E[f <-n].
+	$$
+\end{proof}
+
+\begin{theorem}[可测函数的简单性质]
+	\begin{enumerate}
+		\item 设$f(x)$为$E$上的可测函数, $A$为$E$的可测子集, 则$f: A \to \R$也是可测函数;
+		\item 设$E_1,E_2,\cdots,E_s$为可测集, $E = \bigcup_{i = 1}^s E_i$, 则
+		$$
+			f\text{为}E\text{上的可测函数} \Leftrightarrow f\text{为}E_i\text{上的可测函数}, i = 1,2,\cdots,s.
+		$$
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 对任意实数$a$, $A[f > a] = A \cap E[f > a]$;
+		\item 对任意实数$a$, 有
+		$$
+			E[f > a] = \bigcup\limits_{i = 1}^s E_i[f > a].
+		$$
+	\end{enumerate}
+\end{proof}
+
+\begin{theorem}[可测函数的代数运算]
+	设$f(x),g(x)$为$E$上广义实值可测函数, 则下列函数
+	\begin{enumerate}
+		\item $c f(x), \; c \in \R$; 
+		\item $| f(x) |$; 
+		\item $\frac{1}{f(x)}$; 
+		\item $f(x) + g(x)$;
+		\item $f(x) \cdot g(x)$
+	\end{enumerate}
+	都是$E$上的可测函数. 
+\end{theorem}
+
+\begin{theorem}[可测函数列的极限]
+	设$\{ f_n(x) \}$为$E$上的一个可测函数, 则下列函数
+	$$
+		(\mathrm{i})   \sup\limits_{n \geq 1} f_n (x) , \;
+		(\mathrm{ii})  \inf\limits_{n \geq 1} f_n (x) , \;
+		(\mathrm{iii}) \varlimsup\limits_{n \to \infty} f_n (x), \;
+		(\mathrm{iv})  \varliminf\limits_{n \to \infty} f_n (x). 
+	$$
+	都是$E$上的可测函数. 
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}
+		\item[(i)]   对任意实数$a$, $E \left[\sup\limits_{n \geq 1} f_n (x) > a \right] = \bigcup\limits_{n = 1}^{\infty} E[f_n (x) > a]$; 
+		\item[(ii)]  对任意实数$a$, $E \left[\inf\limits_{n \geq 1} f_n (x) < a \right] = \bigcup\limits_{n = 1}^{\infty} E[f_n (x) < a]$;
+		\item[(iii),(iv)] 只须注意到$\varlimsup\limits_{n \to \infty} f_n (x) =  \sup\limits_{n \geq 1}\left(\inf\limits_{m \geq n}  (f_m (x))\right), \; \varliminf\limits_{n \to \infty} f_n (x) =  \inf\limits_{n \geq 1}\left(\sup\limits_{m \geq n}  (f_m (x))\right)$. 
+	\end{enumerate}
+\end{proof}
+\begin{corollary}
+	设$\{ f_n(x) \}$为$E$上的可测函数列, 且有
+	$$
+		\lim\limits_{n \to \infty} f_n(x) = f(x), \; x \in E,
+	$$
+	则$f(x)$为$E$上的可测函数.
+\end{corollary}
+
+\begin{definition}[几乎处处]
+	设有一个与集合$E \subset \R^n$中的点$x$有关的命题$P(x)$, 
+	若除了$E$中的一个零测集以外, $P(x)$皆为真，
+	则称$P(x)$在$E$上\textbf{几乎处处}是真的, 
+	并简记为$P(x)$ a.e.于$E$. 
+\end{definition}
+
+\begin{theorem}
+	设$f(x),g(x)$是定义在$E \subset \R^n$上的广义实值函数, $f(x)$是$E$上的可测函数. 若$f(x) = g(x)$, a.e.$x \in E$，则$g(x)$在$E$上可测.
+\end{theorem}
+\begin{proof}
+	令$A = \{ x: f(x) \neq g(x) \}$, 则$mA = 0$且$E \backslash A$是可测集. 
+	对任意$a \in \R$, 我们有
+	$$
+	\begin{aligned}
+		E[g > a] 
+		& = (E \backslash A)[g>a] \cup A[g>a] \\
+		& = (E \backslash A)[f>a] \cup A[g>a] .
+	\end{aligned}
+	$$
+	由于$f$可测, $m(A[g>a]) = 0$, 从而$E[g > a]$可测. 
+\end{proof}
+
+由此可知, 对一个可测函数来说, 当改变它在零测集上的值时不会改变函数的可测性. 
+
+\begin{definition}[简单函数]
+	设$f(x)$是$E$上的实值函数. 若
+	$$
+		\{ y: y = f(x), x \in E \}
+	$$
+	为有限集, 则称$f(x)$为$E$上的\textbf{简单函数}. 
+\end{definition}
+设$f(x)$是$E$上的简单函数, 且有
+$$
+	\begin{aligned}
+		& E = \bigcup\limits_{i=1}^s E_i, \; E_i \cap E_j = \varnothing, \\
+		& f(x) = c_i, \; x \in E_i
+	\end{aligned}
+	\quad i,j = 1,2,\cdots,s
+$$
+此时可将$f$记作
+\begin{equation}
+	f(x) = \sum\limits_{i=1}^s c_i \chi_{E_i}(x), \; x \in E. \label{eq:simF}
+\end{equation}
+从而简单函数是有限个特征函数的线性组合. 
+若$f(x)$是$E$上的简单函数, 且(\ref{eq:simF})式中的每个$E_i$都是可测集, 则称$f(x)$是$E$上的\textbf{可测简单函数}．
+
+\begin{theorem}[Riesz表示定理] \label{thm:Riesz1}
+	\begin{enumerate}
+		\item[(i)] 若$ｆ(x)$是$E$上的非负可测函数, 则存在非负可测的简单函数渐升列$\varphi_k(x) \leq \varphi_{k+1}(x),\; k=1,2,\cdots$, 使得
+		$$
+			\lim\limits_{k \to \infty} \varphi_k(x) = f(x),\; x \in E.
+		$$
+		\item[(ii)] 若$f(x)$是$E$上的可测函数, 则存在可测简单函数列$\{ \varphi_k(x) \}$满足$|\varphi_k(x) | \leq |f(x)|$, 使得
+		$$
+			\lim\limits_{k \to \infty} \varphi_k(x) = f(x),\; x \in E.
+		$$
+		若$f(x)$还是\textbf{有界}的, 则上述收敛是\text{一致}的. 
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item[(i)] 
+		作任意的自然数$k$, 将$[0,k]$划分为$k 2^k$份, 并记
+		$$
+		\begin{aligned}
+			& E_{k,j} = E \left[ \frac{j-1}{2^k} \leq f(x) < \frac{j}{2^k} \right], \\
+			& E_k = E[f(x) \geq k], \\
+			& j = 1,2,\cdots,k 2^k,\; k = 1,2,\cdots .
+		\end{aligned}
+		$$
+		作函数列
+		$$
+			\varphi_k(x) = 
+			\begin{cases}
+				\frac{j-1}{2^k},\; x \in E_{k,j} ;\\
+				k, \quad x \in E_k .
+			\end{cases}
+		$$
+%		即
+%		$$
+%			\varphi_k(x) = k \chi_{E_k}(x) + \sum\limits_{j=1}^{k2^k} \frac{j-1}{2^k} \chi_{E_{k,j}}(x), \; x \in E.
+%		$$
+		显然, 每个$\varphi_k(x) $都是非负可测简单函数, 且满足
+		$$
+			\varphi_k(x) \leq \varphi_{k+1}(x) \leq f(x), \;
+			\varphi_k(x) \leq k, \; k=1,2,\cdots.
+		$$
+		
+		现在对任意的$x \in E$, 若$f(x) \neq + \infty$, 则当$k > f(x)$时有
+		$$
+			0 \leq f(x) - \varphi_k(x) \leq 2^{-k};
+		$$
+		若$f(x) = + \infty$, 则$\varphi_k(x) = k,\;(k=1,2,\cdots)$, 从而得
+		$$
+			\lim\limits_{k \to \infty} \varphi_k(x) = f(x), \; x \in E.
+		$$
+	\end{enumerate}
+		
+		
+		\begin{enumerate}
+			\item[(ii)] 
+		作$f^+ (x) = \max\{f(x),0\}, f^-(x) = \min\{-f(x),0\}$, 
+		从而$f(x) = f^+ (x) - f^-(x)$. 
+		由(i)知, 存在非负可测简单函数列
+		$\{ \varphi^{(1)}_k (x) \}$及$\{ \varphi^{(2)}_k (x) \}$满足
+		$$
+			\lim\limits_{k \to \infty} \varphi^{(1)}_k(x) = f^+ (x), \;
+			\lim\limits_{k \to \infty} \varphi^{(2)}_k(x) = f^+ (x).
+		$$
+		显然$\varphi^{(1)}_k (x) - \varphi^{(2)}_k (x)$为是可测简单函数, 且有
+		$$
+			\lim\limits_{k \to \infty} [\varphi^{(1)}_k (x) - \varphi^{(2)}_k (x)] = f^+ (x) - f^- (x) = f(x), \; x \in E.
+		$$
+		若在$E$上有$| f(x) | < M$, 则当$k > M$时, 有
+		$$
+		\begin{aligned}
+			\sup \left\{ |f^+ (x) - \varphi^{(1)}_k (x)|: x \in E \right\} < \frac{1}{2^k}, \\
+			\sup \left\{ |f^- (x) - \varphi^{(2)}_k (x)|: x \in E \right\} < \frac{1}{2^k}.
+		\end{aligned}
+		$$
+		从而知$\varphi^{(1)}_k (x) - \varphi^{(2)}_k (x)$是一致收敛于$f(x)$的.
+		\end{enumerate}
+		
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%										下一节
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{不同意义收敛的可测函数列}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{不同意义下的收敛}
+
+给定一个函数列, 在考虑它的收敛问题时, 我们一般考虑以下几种收敛: 
+\begin{definition}[一致收敛]
+	$\{ f_n(x) \}$为定义在$E \subset \R^n$上的函数列, 若对任意的$\varepsilon > 0$, 恒有只依赖于$\varepsilon$的正整数$N(\varepsilon)$, 使得$n > N(\varepsilon)$时, 若有
+		\begin{equation}
+			\left| f_n(x) - f(x) \right| < \varepsilon, \forall x \in E.
+		\end{equation}
+		恒成立, 则称$f_n(x)$在$E$上一致收敛于$f(x)$. 
+\end{definition}
+
+\begin{definition}[近一致收敛]
+	称$f_n(x)$在$E$上近一致收敛于$f(x)$, 如果任给$\delta > 0$, 存在$E$的可测子集$E_{\delta}$使得$\{ f_n(x) \}$在$E_{\delta}$上一致收敛于$f(x)$, 而$m (E \backslash E_{\delta} ) < \delta$. 
+\end{definition}
+
+\begin{definition}[a.e.收敛]
+	称$f_n(x)$在$E$上a.e.收敛于$f(x)$, 如果任给$\varepsilon > 0$, 有
+	\begin{equation}
+		m E\left[ \lim\limits_n |f_n - f| \geq \varepsilon \right] = 0.
+	\end{equation}
+\end{definition}
+
+\begin{definition}[依测度收敛]
+	称$f_n(x)$在$E$上依测度收敛于$f(x)$, 如果任给$\varepsilon > 0$, 有
+	\begin{equation}
+		\lim\limits_n m E\left[ |f_n - f| \geq \varepsilon \right] = 0.
+	\end{equation}
+\end{definition}
+
+依测度收敛是一种什么样的收敛呢? 
+用文字来叙述, 
+就是说如果事先给了一个(误差)$\varepsilon>0$, 不管这个 $\varepsilon$ 有多小, 
+使得$\left|f_{n}(x)-f(x)\right|$大于(误差)$\varepsilon$的点$x$虽然可能很多, 
+但这种点$x$的全体的测度却是随着 $n$ 无限地增大而趋向于零.
+
+在概率论中, 常用$\mu$表示概率, 这时依测度收敛改称为依概率收敛. 
+
+下面我们先举两个反例, 来说明这种收敛概念和我们所熟悉的处处收敛或 a.e.收敛概念是有很大区别的.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{两个反例}
+
+\begin{example}
+	\framebox[\width]{依测度收敛而处处不收敛的函数列} \par 
+	取$E = (0,1]$, 将$E$等分, 定义两个函数: 
+	$$
+	\begin{array}{c c}
+		f_1^{(1)} = 
+		\begin{cases}
+			1, & x \in \left(0, \frac{1}{2} \right], \\
+			0, & x \in \left(\frac{1}{2}, 1 \right],
+		\end{cases}
+		& 
+		f_2^{(1)} = 
+		\begin{cases}
+			0, & x \in \left(0, \frac{1}{2} \right], \\
+			1, & x \in \left(\frac{1}{2}, 1 \right].
+		\end{cases}
+	\end{array}
+	$$
+	然后将$(0,1]$四等分、八等分、……. 一般地, 对每个$n$, 作$2^n$个函数: 
+	$$
+	f_j^{(n)} = 
+		\begin{cases}
+			0, & x \in \left(\frac{j-1}{2^n}, \frac{j}{2^n} \right], \\
+			1, & x \notin \left(\frac{j-1}{2^n}, \frac{j}{2^n} \right].
+		\end{cases}
+	\quad j = 1,2,\cdots,2^n.
+	$$
+	我们把$\{ f_j^{(n)},\; j = 1,2,\cdots,2^n \}$按照先$n$后$j$的顺序逐个的排成一列:
+	$$
+		f_1^{(1)}, f_2^{(1)}, 
+		f_1^{(2)}, f_2^{(2)}, f_3^{(2)}, f_4^{(2)}, 
+		\cdots, 
+		f_1^{(n)}, f_2^{(n)}, \cdots, f_{2^n}^{(n)}, 
+		\cdots
+	$$
+	其中$f_j^{(n)}$在这个序列中是第$N = 2^n - 2 +j$个函数. 
+	
+	我们说, 这个序列是依测度收敛于$0$的. 
+	这是因为对任意的$\sigma > 0$, $E[|f_j^{(n)} - 0| \geq \sigma]$
+	或是空集($\sigma >1$), 
+	或是$(\frac{j-1}{2^n}, \frac{j}{2^n}] \; (0 < \sigma \leq 1)$, 
+	因此
+	$$
+		m( E[|f_j^{(n)} - 0| \geq \sigma] ) \leq \frac{1}{2^n}. 
+	$$
+	由于当$N$趋于$\infty$时有$n \to \infty$, 由此可见
+	$$
+		\lim\limits_{N \to \infty} m( E[|f_j^{(n)} - 0| \geq \sigma] ) = 0, 
+	$$
+	即$f_j^{(n)}$依测度收敛于$0$. 
+	但是该函数列在$(0,1]$上任何一点都不收敛! 
+	事实上, 对任意$x_0 \in (0,1]$, 无论$n$多大, 总存在$j$使得
+	$$
+		x_0 \in \left(\frac{j-1}{2^n}, \frac{j}{2^n} \right].
+	$$
+	
+	换言之, 对于任何的$x_0 \in (0,1]$, 
+	在$\{ f_j^{(n)}(x_0) \}$中必有两子列, 一个恒为$1$, 一个恒为$0$. 
+	所以该函数列在$(0,1]$上任何点都发散. 
+\end{example}
+
+反之, 一个 a.e.收敛的函数列也可以是不依测度收敛的. 
+
+\begin{example}
+	\framebox[\width]{ a.e.收敛而不依测度收敛的函数列} \par
+	取$E = (0, \infty)$, 作函数列
+	$$
+		f_n(x) = 
+		\begin{cases}
+			1, & x \in (0, n], \\
+			0, & x \in (n, \infty),
+		\end{cases}
+		\quad n = 1,2,\cdots.
+	$$
+	显然$f_n(x) \to 1 \; (n \to \infty)$, 
+	而当$0 < \sigma < 1$时, 
+	$$
+		m( E[|f_n - 1| \geq \sigma] ) = m(n, \infty) = \infty.
+	$$
+	故$\{ f_n \}$不依测度收敛于$1$. 
+\end{example}
+
+尽管两种收敛有较大区别, 但还是有着密切联系的. 
+下面我们对于各种函数列不同意义的收敛间的关系予以说明. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{不同意义收敛的关系}
+
+\begin{center}
+\begin{figure}[h!]
+\begin{tikzpicture}
+
+	\tikzstyle{every node}=[font=\small,scale=2] %放大
+
+	\node[draw, rounded corners]                        (ccon)   {一致收敛};
+	\node[draw, rounded corners, right = 90pt of ccon]  (accon)  {近一致收敛};
+	\node[draw, rounded corners, above = 60pt of accon] (aecon)  {a.e.收敛};
+	\node[draw, rounded corners, right = 90pt of accon] (conbm)  {依测度收敛};
+	
+	\tikzstyle{arrow1} = [thick,->,>=stealth]
+	\draw[arrow1] (ccon)       --    (accon);
+	\draw[arrow1] (ccon)       --    (aecon);
+	\draw[arrow1] (206pt,16pt) --    (206pt,76pt);
+	\draw[arrow1] (accon)      --    (conbm);
+	
+	\tikzstyle{arrow2} = [thick,cyan,->,>=stealth]
+	\draw[arrow2] (163pt,76pt) --    node[left]{\tiny \ru\text{Егоров}}(163pt,16pt);
+	\draw[arrow2] (aecon)      --    node[left]{\tiny Lebesgue}(conbm);
+	
+	\tikzstyle{arrow3} = [thick,dashed,->,>=stealth]
+	\draw[arrow3] (370pt,17pt) --    node[right]{\tiny Riesz}(227pt,90pt);
+
+\end{tikzpicture}	
+\caption{不同意义收敛的可测函数列间的关系.}
+\end{figure}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip 5cm
+\subsection{定理及其证明}
+
+上述中需要证明的有\ru\text{Егоров}定理及其逆定理, Lebesgue定理, Riesz定理以及近一致收敛一定依测度收敛, 其余显然. 
+特别的, 我们此处对于Lebesgue定理的证明由\ru\text{Егоров}定理与近一致收敛一定依测度收敛两部分组成, 因此不再对近一致收敛一定依测度收敛另作证明.
+
+\vskip 0.2cm
+\begin{theorem}[\ru\text{Егоров}定理]\label{thm:Egoroff}
+	设$mE < \infty$, $\{ f_n \}$是$E$上一列$a.e.$收敛于一个$a.e.$有限的函数$f$的可测函数, 那么对于任意$\delta > 0$, 存在子集$E_{\delta} \subset E$, 使$\{f_n\}$在$E_{\delta}$上一致收敛, 且$m(E \backslash E_{\delta}) < \delta$.
+\end{theorem}
+
+\begin{proof}
+		\framebox[\width]{挖去出现无穷减无穷型未定式的零测集}
+
+		由条件, $m\left( E[ |f_n| = \infty ] \right) = 0,\; n=1,2,\cdots$, $m( E[ |f| = \infty ] ) = 0$. 则有$mE_0 = 0$, 其中
+		$$
+			E_0 = \bigcup\limits_{i=1}^n E\left[ |f_n| = \infty \right] \cup E[ |f| = \infty ]\;.
+		$$
+	用$E \backslash E_0$代替$E$, 从而有
+		$$
+		\lim\limits_{n \to \infty} (f_n(x) - f(x)) = 0,\; a.e. \; x \in E.
+		$$
+
+	\framebox[\width]{构造一致收敛点集$E_k$}
+
+	$E$上$\{ f_n \}$不收敛于$f$的点集
+		$$
+		E\left[ \lim\limits_{n \to \infty} (f_n - f) \neq 0 \text{或极限不存在} \right] = 
+		\bigcup\limits_{k = 1}^{\infty} \bigcap\limits_{N = 1}^{\infty} \bigcup\limits_{n = N}^{\infty} E \left[ |f_n - f| \geq \frac 1k \right]
+		$$
+	为零测集, 那么对于任意$k$, 有
+		$$
+			m \left( \bigcap\limits_{N = 1}^{\infty} \bigcup\limits_{n = N}^{\infty} E \left[ |f_n - f| \geq \frac 1k \right]  \right) = 0. 
+		$$
+	又$mE < \infty$, 则
+		$$
+			\lim\limits_{N \to \infty} m \left( \bigcup\limits_{n = N}^{\infty} E \left[ |f_n - f| \geq \frac 1k \right] \right) = m \left( \bigcap\limits_{N = 1}^{\infty} \bigcup\limits_{n = N}^{\infty} E \left[ |f_n - f| \geq \frac 1k \right]  \right) = 0
+		$$
+	于是对于任意$\delta > 0, k \in \mathbb{N}^*$, 存在$N_k$使得$m\left( \bigcup\limits_{n = N_k}^{\infty} E \left[ |f_n - f| \geq \frac 1k \right] \right) < \frac{\delta}{2^k}$. 
+
+	\framebox[\width]{构造$E_{\delta}$并证明$E$与其的差集的测度满足要求}
+
+	令
+		$$
+			E_{\delta} = \bigcap\limits_{k = 1}^{\infty} \bigcap\limits_{n = N_k}^{\infty} E \left[ |f_n - f| < \frac 1k \right]\;.
+		$$
+	那么有
+		$$
+			\begin{aligned}
+				m(E \backslash E_{\delta})
+				&= m \left( \bigcup\limits_{k = 1}^{\infty} \bigcup\limits_{n = N_k}^{\infty} E \left[ |f_n - f| \geq \frac 1k \right] \right) \\
+				&\leq \sum\limits_{k = 1}^{\infty} m \left(\bigcup\limits_{n = N_k}^{\infty} E \left[ |f_n - f| \geq \frac 1k \right] \right) \\
+				&< \sum\limits_{k = 1}^{\infty} \frac{\delta}{2^k} = \delta\;.
+			\end{aligned}
+		$$
+
+	\framebox[\width]{证明$f_n$在$E_{\delta}$上的一致收敛性}
+
+	任取$\varepsilon > 0$, 存在$k$, 使$\frac 1k < \varepsilon$, 令$N = N_k$. 由于
+		$$
+			E_{\delta} \subset \bigcap\limits_{n = N_k}^{\infty} E \left[ |f_n - f| < \frac 1k \right]
+		$$
+	因此对于任意$n \geq N,\; x\in E_{\delta}$ , 有
+		$$
+			|f_n(x) - f(x) | < \frac 1k < \varepsilon
+		$$
+	成立, 故$\{ f_n(x) \}$在$E_{\delta}$上一致收敛于$f(x)$. 
+\end{proof} 
+ 
+\vskip 0.2cm
+\begin{theorem}[\ru\text{Егоров}定理的逆定理]
+	设可测函数列$\{ f_n \}$在$E$上近一致收敛于函数$f$, 则$\{ f_n \}$在$E$上a.e.收敛于函数$f$. 
+\end{theorem}
+
+\begin{proof}
+	即对任意$\delta > 0$, 存在$E$的可测子集$E_{\delta}$满足$m (E \backslash E_{\delta} ) < \delta$, 使得$\{ f_n(x) \}$在$E_{\delta}$上一致收敛于$f(x)$. 
+
+	设$E_0$为$\{ f_n(x) \}$不收敛于$f(x)$的点集, 从而$E_0 \subset E \backslash E_{\delta}$, 所以$m E_0 \leq m(E \backslash E_{\delta}) < \delta$.故$m E \to 0\; (\delta \to 0)$, 从而$\{ f_n \}$a.e.收敛于函数$f$. 
+\end{proof}
+
+\vskip 0.2cm
+当然, 此处称“\ru\text{Егоров}定理的逆定理”显然是不严谨的, 
+因为条件中去掉了$m E < \infty$的限制, 
+但是为了方便记忆, 笔者在此给这个定理冠上了个如此的名号.
+
+\vskip 0.2cm
+\begin{theorem}[Lebesgue定理]
+	设$m E < \infty$, $E$上a.e.有限的可测函数列$\{ f_n(x) \}$a.e.收敛于$f(x)$, 则$\{ f_n (x) \}$依测度收敛于$f(x)$.
+\end{theorem}
+
+\begin{proof}
+	由\ru\text{Егоров}定理, 任给$\varepsilon, \delta > 0$, 存在可测集$E_{\delta} \subset E$满足$m(E \backslash E_{\delta}) < \delta$, 且存在$N$, 当$n > N$时, 有
+		$$
+			|f_n(x) - f(x)| < \varepsilon,\; \forall x \in E_{\delta},
+		$$
+	从而$E \left[ |f_n - f| \geq \varepsilon \right] \subset E \backslash E_{\delta}$, 从而有
+		$$
+			\lim\limits_n m(E \left[ |f_n - f| \geq \varepsilon \right]) \leq m(E \backslash E_{\delta}) < \delta.
+		$$
+	令$\delta \to 0$, 有$\lim\limits_n m(E \left[ |f_n - f| \geq \varepsilon \right]) = 0$, 故而$\{ f_n (x) \}$依测度收敛于$f(x)$.
+\end{proof}
+
+\begin{note}
+	注意\ru\text{Егоров}逆定理与Lebesgue定理选取的不收敛点集的区别:
+	\begin{enumerate}
+		\item \ru\text{Егоров}逆定理
+			\begin{center}
+				$E_0 = E\left[ \lim\limits_n |f_n - f| \geq \varepsilon \right] \subset E \backslash E_{\delta},$ \\
+				$\Rightarrow m E_0 <\delta$
+			\end{center}
+		\item Lebesgue定理
+			\begin{center}
+				$E_n = E\left[ |f_n - f| \geq \varepsilon \right] \subset E \backslash E_{\delta},$ \\
+				$\Rightarrow \lim\limits_n m E_n < \delta.$
+			\end{center}
+	\end{enumerate}
+\end{note}
+
+\begin{theorem}[Riesz定理] \label{thm:Riesz2}
+	$E$上可测函数列$\{ f_n \}$依测度收敛于$f$, 则存在子列$\{f_{n_i}\}$在$E$上a.e.收敛于$f$.
+\end{theorem}
+
+\begin{proof}
+	\framebox[\width]{根据依测度收敛构造逐点不收敛集$E_s$}\par 
+	对任意$s \in \mathbb{N}^*$, 取$\varepsilon = \sigma = \frac 1{2^s}$. 由$f_n(x) \Rightarrow f(x)$, 所以存在$n_s$使得
+		$$
+			m E_s < \frac 1 {2^s},
+		$$
+	其中$E_s = E \left[ | f_{n_s} - f | \geq \frac 1 {2^s} \right]$. 不妨设$n_1 < n_2 < \cdots$. 
+
+	\framebox[\width]{构造子列收敛点集下极限$F$}\par
+	令
+		$$
+			F_k = E \backslash \left( \bigcup\limits_{s = k}^{\infty} E_s \right) =  \bigcap\limits_{s = k}^{\infty} (E \backslash E_s) \\
+			= \bigcap\limits_{s = k}^{\infty} E \left[ | f_{n_s} - f | < \frac 1 {2^s} \right].
+		$$
+	显然在$F_k$上, $f_{n_s} \to f$. 作$F = \bigcup\limits_{k = 1}^{\infty} F_k$, 则在$F$上有$f_{n_s} \to f$. 
+
+	\framebox[\width]{证明$E \backslash F$测度为零}\par 
+		$$
+		\begin{aligned}
+			E \backslash F
+			&= E \backslash \bigcup\limits_{k = 1}^{\infty} \bigcap\limits_{s = k}^{\infty} E \left[ | f_{n_s} - f | < \frac 1 {2^s} \right] \\
+			&= \bigcap\limits_{k = 1}^{\infty} \bigcup\limits_{s = k}^{\infty} E_s .
+		\end{aligned}
+		$$
+	从而对任意$k$，有$E \backslash F \subset \bigcup\limits_{s = k}^{\infty} E_s$. 
+	又$\sum\limits_{s = 1}^{\infty} m E_s = 1$, 那么根据Cauchy收敛准则有
+		$$
+		m(E \backslash F) \leq m \left(\bigcup\limits_{s = k}^{\infty} E_s \right) \leq \sum\limits_{s = k}^{\infty} m E_s \to 0 \qquad (k \to \infty).
+		$$
+\end{proof}
+
+Riesz定理剔除了那些收敛速度不够快的函数项.
+
+\vskip 0.2cm
+Lebesgue定理与Riesz定理提供了处理极限与测度换序的有力工具. 
+
+\begin{center}
+\begin{figure}[h!]
+\begin{tikzpicture}
+
+	\tikzstyle{every node}=[font=\tiny,scale=2] %放大
+
+	\node[draw, rounded corners]                        (aecon)  {a.e.收敛 \\ $\lim\limits_{n \to \infty} m E[|f_n - f| \geq \sigma]$};
+	\node[draw, rounded corners, right = 60pt of aecon] (conbm)  {依测度收敛 \\ $m E[ \lim\limits_{n \to \infty} |f_n - f| \geq \sigma]$ };
+	
+	\tikzstyle{arrow} = [thick,->,>=stealth]
+	\draw[arrow] (aecon)    --    node[above]{\tiny Lebesgue}(conbm);
+	\draw[arrow] (conbm)    --    node[below]{\tiny Riesz}(aecon);
+
+
+\end{tikzpicture}	
+\caption{Lebesgue定理与Riesz定理在极限与测度换序中的应用.}
+\end{figure}
+\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%										下一节
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{可测函数与连续函数的关系}
+
+\begin{definition}[连续函数]
+	称定义在$E \subset \R^n$上的实函数$f(x)$在$x_0 \in E$连续, 
+	如果$y_0 = f(x_0)$有限, 
+	而且对于$y_0$的任一邻域$V$, 存在$x_0$的某邻域$U$, 
+	使得$f(U \cap E) \subset V$. 
+	如果$f(x)$在$E$的每一点连续, 则称$f(x)$在$E$上连续.
+\end{definition}
+
+\begin{example}
+	区间$[0,1]$上的Dirichlet函数
+	$$
+	D(x) = 
+	\begin{cases}
+		1, & x \in [0,1] \cap \Q, \\
+		0, & x \in [0,1] \backslash \Q,
+	\end{cases}
+	$$
+	它在$[0,1]$上没有连续点, 但是将$D(x)$限制在集合$[0,1] \backslash \Q$时, 
+	所得函数为$D(x)|_{[0,1] \backslash \Q}$便是该集合上的常值函数$0$, 因而它是连续函数. 
+	然而函数$D(x)|_{[0,1] \backslash \Q}$与$D(x)$定义域不同, 不是同一函数. 
+\end{example}
+
+显然,一个函数在其定义域的每一个孤立点都是连续的.
+\begin{theorem}[连续函数可测]
+	可测集$E \subset \R^n$上连续函数可测. 
+\end{theorem}
+\begin{proof}
+	设$x \in E[f>a]$, 由连续性, 存在$x$的某邻域$U(x)$, 使得
+	$$
+		U(x) \cap E \subset E[f>a].
+	$$
+	因此, 令$G = \bigcup\limits_{x \in E[f>a]} U(x)$, 则
+	$$
+		G \cap E = \bigcup\limits_{x \in E[f>a]} U(x) \cap E \subset E[f>a].
+	$$
+	反之, 显然有$G \supset E[f>a]$, 因此
+	$$
+		E[f>a] \subset G \cap E[f>a] \subset G \cap E,
+	$$
+	从而$E[f>a] = G \cap E$. 但$G$为开集, 故$G \cap E$仍然可测. 
+\end{proof}
+
+反之, 一般的可测函数可以说是“近连续”的函数. Лузин定理给出了用连续函数刻画Lebesgue可测函数的方式. (也即Lebesgue可测函数构造定理)
+
+\begin{theorem}[Лузин定理] \label{thm:Lusin1}
+	设$f$是$E \subset \R^n$上a.e.有限的可测函数, 则对任意$\delta > 0$, 
+	存在闭子集$F_{\delta} \subset E$, 使得$f(x)$在$F_{\delta}$上是连续函数, 
+	且$m(E\backslash F_{\delta}) < \delta$.
+\end{theorem}
+\begin{proof}
+	从特殊到一般分三种情形来讨论. 不妨假定 $f(x)$ 是实值函数,这是因为
+	$$
+		m \left( E[|f(x)|=+\infty] \right)=0.
+	$$
+	
+	\framebox[\width]{首先考虑简单函数情形}\par
+	设简单函数
+	$$
+		f(x) = \sum\limits_{i=1}^p c_i \chi_{E_i}(x),\; 
+		E = \bigcup\limits_{i=1}^p E_i,\;
+		E_i \cap E_j = \varnothing\;(i \neq j)
+	$$
+	对任意$\delta > 0$及每个可测集$E_i$, 存在闭集$F_i \subset E_i$满足$m( E_i \backslash F_i) < \frac{\delta}p$. 
+	显然$f(x)$在每个$F_i$上连续. 
+	而 $F_1, F_1, \cdots$, $F_p$互不相交, 可知$f(x)$在$F_{\delta} = \bigcup\limits_{i=1}^p F_i$上连续, 且闭集$F_\delta$满足
+	$$
+		m(E \backslash F)
+		=\sum\limits_{i=1}^p m\left(E_i \backslash F_i\right)
+		<\sum\limits_{i=1}^p \frac{\delta}p=\delta .
+	$$
+	
+	\framebox[\width]{其次考虑有界可测函数情形}\par
+	若$f(x)$有界, 则由Riesz表示定理(Thm:\ref{thm:Riesz1}), 存在可测简单函数列$\{ \varphi_k(x) \}$在$E$上一致收敛于$f(x)$. 
+	对任意$\delta > 0$, 存在闭集$F_k \subset E$满足$m(E \backslash F_k) < \frac{\delta}{2^k}$, 使得$\varphi_k$在$F_k$上连续.
+	因此$\varphi_k$在闭集$\bigcap\limits_{k=1}^{\infty} F_k$上连续且一致收敛于$f(X)$. % 任意多闭集的交仍为闭集
+	从而$f(x)$在$F_{\delta}$上连续且满足
+	$$
+		m(E \backslash F_{\delta}) 
+		= m \left( \bigcup\limits_{k=1}^{\infty} (E \backslash F_k) \right)
+		\leq \sum\limits_{k=1}^{\infty} m(E \backslash F_k) < \delta .
+	$$
+	
+	\framebox[\width]{最后考虑一般的可测函数情形}\par
+	作变换
+	$$
+	g(x)=\frac{f(x)}{1+|f(x)|} \quad\left(f(x)=\frac{g(x)}{1-|g(x)|}\right),
+	$$
+	则$g(x)$在$E$上有界可测, 那么存在闭集$F_{\delta} \subset E$满足$m(E \backslash F_{\delta}) < \delta$, 使得$g(x)$在$F_{\delta}$上连续. 
+	又$|g(x)| < 1$, 从而$f(x)$在$F_{\delta}$上也连续.
+	
+\end{proof}
+
+
+\vskip 0.3cm
+粗略地讲, Лузин定理是把可测函数的不连续性局部连续化了. 
+对于可测直线集$E\subset \R$上的函数$f(x)$, 
+如果我们将连续函数$\left. f \right|_F$延拓至整个$\R$, 
+那么我们还可以给出另一个形式的Лузин定理. 
+\vskip 0.3cm
+
+\begin{theorem}[Лузин定理']\label{thm:Lusin2}
+	设$f$是$E\subset \R$上a.e.有限的可测函数, 则对任意$\delta > 0$, 
+	存在闭子集$F \subset E$, 以及整个$\R$上的连续函数$g(x)$
+	使得在$F$上有$f(x) = g(x)$, 
+	且$m(E\backslash F) < \delta$.
+	
+	此外还可要求
+	$$
+		\sup_{\R} g(x) = \sup_{F} f(x), \qquad 
+		\inf_{\R} g(x) = \inf_{F} f(x). 
+	$$
+\end{theorem}
+\begin{proof}
+	由Лузин定理(Thm:\ref{thm:Lusin1}), 存在闭子集$F \subset E$, 使得$f(x)$在$F$上是连续函数, 且$m(E\backslash F) < \delta$.
+	
+	下面我们将连续函数$\left. f \right|_F$延拓至整个$\R$. 
+	
+	由于$F$为闭集, 从而开集$\R \backslash F$可以表示为至多可数个互不相交的开区间$(a_i,b_i)$的并集(这些区间中可能出现一到两个无限长的区间). 
+	由于各$(a_i,b_i)$的端点属于$F$, 故总可将$f(x)$按下面方式在各$[a_i,b_i]$中保持线性且连续的延拓为$g(x)$. 
+	$$
+		g(x) = 
+		\begin{cases}
+			f(x), & x \in F, \\
+			f(a_i) + \frac{f(b_i) - f(a_i)}{b_i - a_i}(x - a_i), & x \in (a_i,b_i), a_i, b_i \text{有限}, \\
+			f(b_i), & x \in (a_i,b_i), a_i = - \infty, \\
+			f(a_i), & x \in (a_i,b_i), b_i = - \infty.
+		\end{cases}
+	$$
+	则$g(x)$满足$\left. g \right|_F = \left. f \right|_F$. 
+	并且有
+	$$
+		\sup_{F} g(x) = \sup_{F} f(x), \qquad 
+		\inf_{F} g(x) = \inf_{F} f(x). 
+	$$
+	因此我们只需证明$g$在$\R$上连续. 
+	
+	显然$F^c$中的点都是$g$的连续点, 下证$F$中的点也是$g$的连续点. 
+	任取$x_0 \in F$, 对任意$\varepsilon > 0$, 因为$f$在$F$上连续, 必有$\delta_0$使得$x \in U(x_0, \delta) \cap F$时, 有
+	$$
+		|f(x) - f(x_0)| < \varepsilon.
+	$$
+	
+	若$(x_0 - \delta, x_0) \cap F = \varnothing$, 则$x_0$必是$F^c$的某个构成区间的右端点. 由于$g$在$(a_i,b_i)$中为线性函数, 所以$g$在$x_0$左连续. 
+	
+	若$(x_0 - \delta, x_0) \cap F \neq \varnothing$, 设有$\hat{x} \in (x_0 - \delta, x_0) \cap F$, 那么当$x \in [\hat{x}, x_0) \cap F$时, 有$g(x) = f(x),\; g(x_0) = f(x_0)$. 因此
+	$$
+	\begin{array}{c r}
+		|g(x) - g(x_0)| = |f(x) - f(x_0)| \leq \varepsilon. & (*)
+	\end{array}
+	$$
+	而当$x \in [\hat{x}, x_0] \backslash F$时, 必有$F^c$的构成区间$(a_k, b_k)$, 使得$x \in (a_k, b_k) \subset (\hat{x}, x_0)$. 
+	由于$a_k, b_k \in [\hat{x}, x_0] \cap F$, 由$(*)$式, 有
+	$$
+		|g(a_k) - g(x_0)| < \varepsilon, \;
+		|g(b_k) - g(x_0)| < \varepsilon.
+	$$
+	
+	由与$g(x)$值介于$g(a_k)$和$g(b_k)$, 因此对$g(x)$, $(*)$式也成立. 故$g$在$x_0$左连续.
+	
+	类似的可证明$g$在$x_0$右连续, 因此$g$在$x_0$连续. 
+\end{proof}
+
+\vskip 0.3cm
+值得注意的是, 该定理亦可推广至$n$维空间. 
+\begin{corollary}
+	若$f(x)$是$E \subset \R^n$上a.e.有限的可测函数, 
+	则对任给的$\delta > 0$, 存在$\R^n$上的一个连续函数$g(x)$使得
+	$$
+		m(E [ f(x) \neq g(x) ] ) < \delta. 
+	$$
+\end{corollary}
+
+\vskip 0.3cm
+\begin{theorem}[Лузин定理的逆定理]
+	设$f(x)$为可测集$E$上a.e.有限的函数, 如果对任意$\delta > 0$, 存在闭集$F_{\delta} \subset E$满足$m(E\backslash F_{\delta}) < \delta$, $f(x)$在$F_{\delta}$上连续, 则$f(x)$在$E$上可测.
+\end{theorem}
+\begin{proof}
+	由条件, 存在可测集$F_n \subset E$, $m(E \backslash F_n) < \frac 1n$, $f(x)$在$F_n$上连续, 从而在$F_n$上可测.
+	
+	令$F_0 = E \backslash \bigcup\limits_{n=1}^{\infty}F_n$, 则对任意$n$, $m F_0 \leq m(E \backslash F_n) < \frac 1n$. 
+	由$n$的任意性, $m F_0 = 0$. 因此$f(x)$必在$F_0$可测.
+	
+	又$E = \bigcup\limits_{n=0}^{\infty}F_n$, 对任意$a \in \R$, 有$E[f>a] = \bigcup\limits_{n=0}^{\infty}F_n[f>a]$可测, 则$f(x)$在$E$上可测. 
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

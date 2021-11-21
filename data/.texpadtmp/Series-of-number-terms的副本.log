@@ -1,0 +1,266 @@
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xetex 2021.4.5)  18 JUN 2021 16:46
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**Series-of-number-terms的副本.tex
+(./Series-of-number-terms的副本.tex
+./Series-of-number-terms的副本.tex:3: Undefined control sequence.
+l.3 \usepackage
+               {amssymb}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:5: Undefined control sequence.
+l.5 \usepackage
+               {tikz}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:6: Undefined control sequence.
+l.6 \usetikzlibrary
+                   {plotmarks}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:7: Undefined control sequence.
+l.7 \usepackage
+               {pgfplots}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:10: Undefined control sequence.
+l.10 \definecolor
+                 {mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:11: Undefined control sequence.
+l.11 \definecolor
+                 {mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:12: Undefined control sequence.
+l.12 \definecolor
+                 {mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:13: Undefined control sequence.
+l.13 \definecolor
+                 {mycolor4}{rgb}{0.49400,0.18400,0.55600}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:14: Undefined control sequence.
+l.14 \definecolor
+                 {mycolor5}{rgb}{0.46600,0.67400,0.18800}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:15: Undefined control sequence.
+l.15 \definecolor
+                 {mycolor6}{rgb}{0.30100,0.74500,0.93300}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:17: Undefined control sequence.
+l.17 \begin
+           {tikzpicture}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (544.22005pt too wide) in paragraph at lines 10--18
+[]\tenrm mycolor1rgb0.00000,0.44700,0.74100mycolor2rgb0.85000,0.32500,0.09800mycolor3rgb0.92900,0.69400,0.12500mycolor4rgb0.49400,0.18400,0.55600mycolor5rgb0.46600,0.67400,0.18800mycolor6rgb0.30100,0.74500,0.93300tikzpicture |
+
+\hbox(6.94444+1.94444)x469.75499
+.\hbox(0.0+0.0)x20.0
+.\tenrm m
+.\kern-0.27779
+.\tenrm y
+.\tenrm c
+.etc.
+
+./Series-of-number-terms的副本.tex:19: Undefined control sequence.
+l.19 \begin
+           {axis}[%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:29: Undefined control sequence.
+<recently read> \text 
+                      
+l.29 title={$\text
+                  {xe}^{\text{-nx}}\text{, n=1,5,20}$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:29: Undefined control sequence.
+l.29 title={$\text{xe}^{\text
+                             {-nx}}\text{, n=1,5,20}$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:29: Undefined control sequence.
+l.29 title={$\text{xe}^{\text{-nx}}\text
+                                        {, n=1,5,20}$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:31: Undefined control sequence.
+l.31 \addplot
+              [color=mycolor1, forget plot]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:133: Argument of \\ has an extra }.
+<inserted text> 
+                \par 
+<to be read again> 
+                   }
+l.133 }
+       ;
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+ 0.0101010101010101 0.00999949327036409\\ 0.0202020202020202 0.019797\ETC.
+./Series-of-number-terms的副本.tex:133: Paragraph ended before \\ was complete.
+<to be read again> 
+                   \par 
+<to be read again> 
+                   }
+l.133 }
+       ;
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+./Series-of-number-terms的副本.tex:134: Undefined control sequence.
+l.134 \addplot
+               [color=mycolor2, forget plot]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:236: Argument of \\ has an extra }.
+<inserted text> 
+                \par 
+<to be read again> 
+                   }
+l.236 }
+       ;
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+ 0.0101010101010101 0.00960352653431247\\ 0.0202020202020202 0.018261\ETC.
+./Series-of-number-terms的副本.tex:236: Paragraph ended before \\ was complete.
+<to be read again> 
+                   \par 
+<to be read again> 
+                   }
+l.236 }
+       ;
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+./Series-of-number-terms的副本.tex:237: Undefined control sequence.
+l.237 \addplot
+               [color=mycolor3, forget plot]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Series-of-number-terms的副本.tex:339: Argument of \\ has an extra }.
+<inserted text> 
+                \par 
+<to be read again> 
+                   }
+l.339 }
+       ;
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+ 0.0101010101010101 0.00825331738525991\\ 0.0202020202020202 0.013487\ETC.
+./Series-of-number-terms的副本.tex:339: Paragraph ended before \\ was complete.
+<to be read again> 
+                   \par 
+<to be read again> 
+                   }
+l.339 }
+       ;
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+[1] )
+Output written on /Users/mylo_xyloto/Documents/latex/ElegantLatex/ElegantBook-master/analysis/data/.texpadtmp/Series-of-number-terms的副本.pdf (1 page).

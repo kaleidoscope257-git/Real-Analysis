@@ -1,0 +1,162 @@
+\documentclass[cn,10pt,math=newtx,citestyle=gb7714-2015,bibstyle=gb7714-2015]{elegantbook}
+
+\title{家用实变函数实用技术手册}
+\subtitle{Written by \LaTeX}
+
+\author{dry}
+\institute{Department of Mathematics}
+\date{\today}
+\version{$\mu$} 
+
+\extrainfo{大学功夫即是明明德, 明明德只是固诚意, 诚意的工夫只是格物致知.}
+
+\logo{shulogo.pdf}
+\cover{xx3.png}
+
+% 本文档命令
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+\definecolor{customcolor}{RGB}{0,47,167} %International Klein blue
+%\definecolor{customcolor}{RGB}{32,178,170}
+\colorlet{coverlinecolor}{customcolor}
+
+\usepackage{amssymb}
+\usepackage{esint}
+\usepackage{extarrows}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%tikz设置%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes.geometric}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+
+%\usepackage{marvosym}
+\usepackage{tikzsymbols}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%俄语设置%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fontspec}
+\newfontfamily\ru{CMU Serif}
+
+\setmainfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%水印设置%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{draftwatermark, everypage}
+%\SetWatermarkText{瞧本环奈}
+\SetWatermarkLightness{0.94}
+\SetWatermarkScale{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%鸭子设置%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usetikzlibrary{ducks} 
+
+\setcounter{tocdepth}{2} %目录深度到 subsection 层级
+
+\begin{document}
+
+\maketitle
+\frontmatter
+
+\chapter*{前言}
+\markboth{Introduction}{前言}
+
+随着人们生活水平的不断提高，实变函数迅速走进千家万户，越发广泛广泛应用在人们的日常生活中。
+
+由于实变函数所涉及的内容较多，学习者不仅要懂得大定理，更要懂得大定理的用处，这对初学者来说是一个不小的挑战。
+如何能快速把握实变函数学习脉络、准确掌握定理证明，这成为学习者首先要面对的问题。
+
+出于解决以上问题，笔者在瞎编《家用实变函数实用技术手册》时参考了几种主流教材 
+\cite{b1,b2,b3,b4,b5}，对定理的证明与用处进行了梳理，力图做到简洁明了、举重若轻. 
+应该足以应付家庭生活查阅使用，希望你能看得开心!
+\Winkey[1.3][yellow]
+
+由于时间关系, 前两章内容暂缓编写. 
+
+\vskip 0.3cm
+\underline{本书仅作个人复习查阅使用, 勿作他用!}
+
+\vskip 0.3cm
+\underline{时间仓促，文中难免有这样那样的不妥，请给予批评指正！}
+数学上的错误也好，文法标点上的也好，还请不吝指教。
+联系QQ：
+\href{https://qm.qq.com/cgi-bin/qm/qr?k=X3d1i1X40fk58mc50cE9P6d_nBPJRDm1&noverify=0}{2155659575}，
+当然你也可以通过该QQ号对应的邮箱来联系笔者。
+
+
+\vskip 1.5cm
+
+\begin{flushright}
+dry \\
+\today 
+\end{flushright}
+
+\vskip 2.5cm
+\begin{center}
+	% \rule[水平高度]{长度}{粗细}
+	% {\noindent} 指消除缩进
+	{\noindent}\rule[-10pt]{17.5cm}{0.05em}
+\end{center}
+\vskip 0.5cm
+
+Littlewood的实分析三原则是J. E. Littlewood的启发式教学法, 
+用于帮助教授度量理论的要点.
+
+\begin{table*}[htbp]
+	\centering
+	\begin{tabular}{l}
+		\toprule
+			Littlewood三原则 \\
+		\midrule
+			1.每个(可测)集近于区间的有限并；\\
+			2.每个(可测)函数近于连续函数; \\
+			3.每个收敛的(可测)函数序列近于一致收敛. \\
+		\bottomrule
+	\end{tabular}
+\end{table*}
+
+其中后两个原则分别来自
+\ru\text{Лузин}定理(Thm:\ref{thm:Lusin1})
+与\ru\text{Егоров}定理(Thm:\ref{thm:Egoroff}) , 
+而可测集类可以表示为$G_{\delta}$集挖去一个零测集. 
+
+%%%%%画 几 只 鸭 子%%%%%% 
+\begin{figure}[b]
+
+\raggedleft
+
+\begin{tikzpicture}[scale = 1] 
+	\draw (0,0) pic[ duck/water=green, duck/alien, duck/speech=Hello!, duck/laughing] {duck};
+	\duck[graduate=gray!20!black, tassel=red!70!black, tshirt, jacket=gray, tie, book=\scalebox{0.25}{\tiny \TeX} , 
+			xshift=60pt, scale=.3, yshift=100pt]
+	\duck[tshirt=cyan, aodai=blue!50!black, conicalhat=brown, 
+			xshift=90pt, scale=.3, yshift=150pt] 
+	\duck[witch=black!50!gray, longhair=red!80!black, jacket=black!50!gray, magicwand, think=\scalebox{0.5}{\tiny Accio}, 
+			xshift=80pt, scale=.3, yshift=50pt] 
+	\duck[body=pink, unicorn=magenta!60!violet, longhair=magenta!60!violet, icecream, 
+			xshift=110pt, scale=.3, yshift=100pt]
+\end{tikzpicture}
+
+\end{figure}
+
+
+
+\tableofcontents
+
+\mainmatter
+
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\C{\mathbb{C}}
+\def\N{\mathbb{N}}
+
+\def\d{\mathrm{d}}
+
+\include{data/1}
+\include{data/2}
+\include{data/3}
+\include{data/4}
+\include{data/5}
+
+\nocite{*} 
+\printbibliography
+\appendix
+
+
+
+
+\end{document}
